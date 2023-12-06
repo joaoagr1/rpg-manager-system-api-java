@@ -1,4 +1,4 @@
-package rpg.system.rpg.model;
+package rpg.system.rpg.model.domain;
 
 
 import jakarta.persistence.*;
