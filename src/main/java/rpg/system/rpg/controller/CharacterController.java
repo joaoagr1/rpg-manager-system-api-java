@@ -3,9 +3,11 @@ package rpg.system.rpg.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import rpg.system.rpg.model.repositorys.CharactersRepository;
 import rpg.system.rpg.model.domain.RPGCharacters;
+import rpg.system.rpg.model.services.RequestUpdateCharacter;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,7 +36,7 @@ public class CharacterController {
 
     //Find all basics information from a specific character...
     @GetMapping("/{character_id}")
-    public ResponseEntity<Optional<RPGCharacters>> findById(@PathVariable Long character_id) {
+    public ResponseEntity<Optional<RPGCharacters>> getCharacterById(@PathVariable Long character_id) {
         Optional<RPGCharacters> character = charactersRepository.findById(character_id);
         return ResponseEntity.ok(character);
     }
@@ -42,7 +44,7 @@ public class CharacterController {
 
     //Create a new Character register on character table...
     @PostMapping
-    public ResponseEntity<RPGCharacters> create(@RequestBody RPGCharacters data) {
+    public ResponseEntity<RPGCharacters> createCharacter(@RequestBody RPGCharacters data) {
         RPGCharacters createdCharacter = charactersRepository.save(data);
 
         // Retorna ResponseEntity com o personagem criado e o status HTTP 201 Created
@@ -52,7 +54,7 @@ public class CharacterController {
 
     //Deleting a character register passing character_id...
     @DeleteMapping("/{character_id}")
-    public ResponseEntity<Void> deleteById(@PathVariable Long character_id) {
+    public ResponseEntity<Void> deleteCharacterById(@PathVariable Long character_id) {
         // Verifica se o personagem existe antes de excluí-lo
         if (charactersRepository.existsById(character_id)) {
             // Exclui o personagem
@@ -63,6 +65,12 @@ public class CharacterController {
             // Se o personagem não existir, retorna HTTP 404 Not Found
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PutMapping
+    public void updateCharacterById(@RequestBody @Validated RequestUpdateCharacter data) {
+        var updatedCharacter = charactersRepository.getReferenceById(data.id());
+        updatedCharacter.updatedata(data);
     }
 
 
