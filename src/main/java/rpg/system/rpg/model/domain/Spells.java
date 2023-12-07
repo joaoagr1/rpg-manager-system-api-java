@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import rpg.system.rpg.model.services.RequestPostSpell;
 
 @Table(name = "Spells")
 @Entity(name = "Spells")
@@ -18,7 +19,7 @@ public class Spells {
 
     @ManyToOne
     @JoinColumn(name = "character_id")
-    private RPGCharacters character;
+    private RPGCharacters character_id;
 
     @Column(name = "name", length = 255)
     private String name;
@@ -27,5 +28,9 @@ public class Spells {
     private String description;
 
 
-
+    public Spells(RequestPostSpell data) {
+        this.character_id = data.character_id();
+        this.name = data.name();
+        this.description = data.description();
+    }
 }
