@@ -11,7 +11,9 @@ import java.util.List;
 @Repository
 public interface SpellsRepository extends JpaRepository<Spells,Long> {
 
-    @Query(value = "SELECT * FROM spells s WHERE s.character_id = :characterId", nativeQuery = true)
-    List<Spells> findSpellsByCharacterId(@Param("characterId") Long characterId);
+    @Query(value = "SELECT * FROM spells  WHERE character_id = :character_id", nativeQuery = true)
+    List<Spells> findSpellsByCharacterId(@Param("character_id") Long character_id);
 
 }
+
+

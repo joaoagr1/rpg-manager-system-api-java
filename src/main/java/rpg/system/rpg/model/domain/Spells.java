@@ -10,19 +10,15 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@EqualsAndHashCode(of = "spell_id")
 public class Spells {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long spell_id;
 
     @ManyToOne
     @JoinColumn(name = "character_id")
     private RPGCharacters character;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 
     @Column(name = "name", length = 255)
     private String name;
