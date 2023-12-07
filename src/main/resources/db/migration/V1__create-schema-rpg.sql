@@ -5,7 +5,7 @@ CREATE TABLE Users (
     password_hash VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB;
+);
 
 -- Tabela Characters
 CREATE TABLE Characters (
@@ -38,22 +38,18 @@ CREATE TABLE AttributePoints (
 
 -- Tabela Spells
 CREATE TABLE Spells (
+    spell_id INT PRIMARY KEY AUTO_INCREMENT,
     character_id INT,
-    user_id INT,
     name VARCHAR(255),
     description TEXT,
-    PRIMARY KEY (character_id, user_id),
-    FOREIGN KEY (character_id) REFERENCES Characters(id),
-    FOREIGN KEY (user_id) REFERENCES Users(id)
+    FOREIGN KEY (character_id) REFERENCES Characters(id)
 ) ENGINE=InnoDB;
 
 -- Tabela CharacterItems
 CREATE TABLE CharacterItems (
     character_id INT,
-    user_id INT,
     name VARCHAR(255),
     description TEXT,
-    PRIMARY KEY (character_id, user_id),
-    FOREIGN KEY (character_id) REFERENCES Characters(id),
-    FOREIGN KEY (user_id) REFERENCES Users(id)
+    PRIMARY KEY (character_id),
+    FOREIGN KEY (character_id) REFERENCES Characters(id)
 ) ENGINE=InnoDB;
