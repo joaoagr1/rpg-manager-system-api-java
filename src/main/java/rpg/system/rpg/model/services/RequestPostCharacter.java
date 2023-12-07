@@ -1,16 +1,17 @@
 package rpg.system.rpg.model.services;
 
 import org.antlr.v4.runtime.misc.NotNull;
+import rpg.system.rpg.model.domain.User;
 
-public record RequestUpdateCharacter(
-        Long id,
+public record RequestPostCharacter(
         String background,
         String alignment,
         String features,
         String class_,
         String race,
         Long level,
-        String character_name
+        String character_name,
+        User userId
         ) {
 
 }

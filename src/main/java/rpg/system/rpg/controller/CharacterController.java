@@ -1,5 +1,6 @@
 package rpg.system.rpg.controller;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,10 +8,13 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import rpg.system.rpg.model.repositorys.CharactersRepository;
 import rpg.system.rpg.model.domain.RPGCharacters;
+import rpg.system.rpg.model.services.RequestPostCharacter;
 import rpg.system.rpg.model.services.RequestUpdateCharacter;
 
 import java.util.List;
 import java.util.Optional;
+
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @RestController
 @RequestMapping("/characters")
@@ -44,11 +48,8 @@ public class CharacterController {
 
     //Create a new Character register on character table...
     @PostMapping
-    public ResponseEntity<RPGCharacters> createCharacter(@RequestBody RPGCharacters data) {
-        RPGCharacters createdCharacter = charactersRepository.save(data);
-
-        // Retorna ResponseEntity com o personagem criado e o status HTTP 201 Created
-        return new ResponseEntity<>(createdCharacter, HttpStatus.CREATED);
+    public void createCharacter(@RequestBody RequestPostCharacter data) {
+        charactersRepository.save(new RPGCharacters(data));
     }
 
 
@@ -67,10 +68,13 @@ public class CharacterController {
         }
     }
 
-    @PutMapping
-    public void updateCharacterById(@RequestBody @Validated RequestUpdateCharacter data) {
-        var updatedCharacter = charactersRepository.getReferenceById(data.id());
-        updatedCharacter.updatedata(data);
+    @PutMapping("/{id}")
+    public RPGCharacters updateCharacterById(@PathVariable Long id, @RequestBody RequestUpdateCharacter data) {
+        RPGCharacters existingCharacter = charactersRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Character not found"));
+        existingCharacter.updatedata(data);
+        RPGCharacters updatedCharacter = charactersRepository.save(existingCharacter);
+        return updatedCharacter;
     }
 
 

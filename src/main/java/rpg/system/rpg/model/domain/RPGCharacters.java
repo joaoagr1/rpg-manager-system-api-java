@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import rpg.system.rpg.model.services.RequestPostCharacter;
 import rpg.system.rpg.model.services.RequestUpdateCharacter;
 
 @Table(name = "Characters")
@@ -75,4 +76,16 @@ public class RPGCharacters {
         }
 
     }
+
+    public RPGCharacters(RequestPostCharacter data){
+        this.background = data.background();
+        this.alignment = data.alignment();
+        this. features = data.features();
+        this.class_ = data.class_();
+        this.race = data.race();
+        this.level = data.level();
+        this.character_name = data.character_name();
+        this.userId = data.userId();
+    }
+
 }
