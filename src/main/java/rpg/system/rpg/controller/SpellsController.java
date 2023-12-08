@@ -34,9 +34,10 @@ public class SpellsController {
         spellsRepository.save(new Spells(data));
     }
 
-    @DeleteMapping
-    public void deleteSpell(@PathVariable deleted){
-        spellsRepository.delete();
-    }
+    @DeleteMapping("/{id}")
+    public void deleteSpell(@PathVariable Long id){
+        spellsRepository.deleteById(id);
+
+        }
 
 }
