@@ -1,22 +1,27 @@
 package rpg.system.rpg.model.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "CharacterItems")
+@EqualsAndHashCode(of = "characteritems_id")
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CharacterItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long characteritems_id;
 
-    @ManyToOne
-    @JoinColumn(name = "character_id")
-    private RPGCharacters character;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "character_id")
+    private Long character_id;
+
 
     @Column(name = "name", length = 255)
     private String name;

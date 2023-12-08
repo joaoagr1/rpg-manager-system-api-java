@@ -47,7 +47,7 @@ CREATE TABLE Spells (
 
 -- Tabela CharacterItems
 CREATE TABLE CharacterItems (
-    characteritems_id INT,
+    characteritems_id INT AUTO_INCREMENT,
     character_id INT,
     name VARCHAR(255),
     description TEXT,
