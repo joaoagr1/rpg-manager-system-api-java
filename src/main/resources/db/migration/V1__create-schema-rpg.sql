@@ -47,9 +47,10 @@ CREATE TABLE Spells (
 
 -- Tabela CharacterItems
 CREATE TABLE CharacterItems (
+    characteritems_id INT,
     character_id INT,
     name VARCHAR(255),
     description TEXT,
-    PRIMARY KEY (character_id),
+    PRIMARY KEY (characteritems_id),
     FOREIGN KEY (character_id) REFERENCES Characters(id)
 ) ENGINE=InnoDB;
