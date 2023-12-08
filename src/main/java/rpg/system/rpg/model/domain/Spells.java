@@ -17,9 +17,9 @@ public class Spells {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long spell_id;
 
-    @ManyToOne
-    @JoinColumn(name = "character_id")
-    private RPGCharacters character_id;
+
+    @Column(name = "character_id")
+    private Long character_id;
 
     @Column(name = "name", length = 255)
     private String name;

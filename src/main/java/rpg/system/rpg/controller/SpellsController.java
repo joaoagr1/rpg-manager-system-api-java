@@ -30,9 +30,13 @@ public class SpellsController {
     }
 
     @PostMapping
-    public void createSpelll(@RequestBody RequestPostSpell data){
+    public void createSpell(@RequestBody RequestPostSpell data){
         spellsRepository.save(new Spells(data));
     }
 
+    @DeleteMapping
+    public void deleteSpell(@PathVariable deleted){
+        spellsRepository.delete();
+    }
 
 }
