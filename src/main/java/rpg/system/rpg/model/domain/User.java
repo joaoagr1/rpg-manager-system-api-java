@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import rpg.system.rpg.model.services.RequestPostUser;
 
 @Table(name = "Users")
 @Entity(name = "Users")
@@ -29,4 +30,8 @@ public class User {
        this.id = someNumber;
     }
 
+    public User(RequestPostUser data) {
+        this.login = data.login();
+        this.password = data.password();
+    }
 }

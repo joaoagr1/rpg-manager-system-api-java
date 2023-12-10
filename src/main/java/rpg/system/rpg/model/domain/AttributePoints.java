@@ -1,19 +1,18 @@
 package rpg.system.rpg.model.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "AttributePoints")
+@Getter
+@Setter
 public class AttributePoints {
 
     @Id
     @Column(name = "character_id")
     private Long characterId;
-
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "character_id")
-    private RPGCharacters character;
 
     @Column(name = "strength", nullable = false)
     private int strength;
