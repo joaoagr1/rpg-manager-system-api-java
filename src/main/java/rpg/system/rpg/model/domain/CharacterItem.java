@@ -5,9 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import rpg.system.rpg.model.services.RequestPostItem;
 
-@Entity
-@Table(name = "CharacterItems")
+@Entity(name = "characteritems")
+@Table(name = "characteritems")
 @EqualsAndHashCode(of = "characteritems_id")
 @Getter
 @AllArgsConstructor
@@ -29,4 +30,10 @@ public class CharacterItem {
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
+    public CharacterItem(RequestPostItem data) {
+        this.character_id = data.character_id();
+        this.description = data.description();
+        this.name = data.name();
+
+    }
 }
