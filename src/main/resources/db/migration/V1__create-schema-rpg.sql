@@ -26,13 +26,13 @@ CREATE TABLE Characters (
 -- Tabela AttributePoints
 CREATE TABLE AttributePoints (
     character_id INT PRIMARY KEY,
-    strength INT NOT NULL,
-    dexterity INT NOT NULL,
-    constitution INT NOT NULL,
-    intelligence INT NOT NULL,
-    wisdom INT NOT NULL,
-    charisma INT NOT NULL,
-    passive_perception INT NOT NULL,
+    strength INT,
+    dexterity INT,
+    constitution INT,
+    intelligence INT,
+    wisdom INT,
+    charisma INT,
+    passive_perception INT,
     FOREIGN KEY (character_id) REFERENCES Characters(id)
 ) ENGINE=InnoDB;
 

@@ -20,13 +20,14 @@ public class JournalController {
     @Autowired
     private JournalRepository journalRepository;
 
+    //This endpoint updates the journal from a specific character...
     @PutMapping("/{character_id}")
-    public Journal updateJounralrByCharacterId(@PathVariable Long character_id, @RequestBody RequestUpdateJournal data) {
+    public ResponseEntity<Journal> updateJounralrByCharacterId(@PathVariable Long character_id, @RequestBody RequestUpdateJournal data) {
         Journal existingJournal = journalRepository.findById(character_id)
                 .orElseThrow(() -> new EntityNotFoundException("Character not found"));
         existingJournal.updatedata(data);
         Journal updatedCharacter = journalRepository.save(existingJournal);
-        return updatedCharacter;
+        return ResponseEntity.ok(updatedCharacter);
     }
 
 
