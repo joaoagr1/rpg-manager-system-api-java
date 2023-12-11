@@ -2,16 +2,14 @@ package rpg.system.rpg.model.domain;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import rpg.system.rpg.model.services.RequestPostCharacter;
 import rpg.system.rpg.model.services.RequestUpdateCharacter;
 
 @Table(name = "Characters")
 @Entity(name = "Characters")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -85,6 +83,9 @@ public class RPGCharacters {
         this.level = data.level();
         this.characterName = data.characterName();
         this.user_id = data.user_id();
-    }
+
+        Journal characterJournal = new Journal();
+
 
 }
+    }
