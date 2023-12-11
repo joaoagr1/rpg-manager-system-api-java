@@ -1,43 +1,41 @@
 package rpg.system.rpg.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import rpg.system.rpg.model.domain.RPGCharacters;
 import rpg.system.rpg.model.domain.Spells;
-import rpg.system.rpg.model.repositorys.CharactersRepository;
 import rpg.system.rpg.model.repositorys.SpellsRepository;
 import rpg.system.rpg.model.services.RequestPostSpell;
 
 import java.util.List;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
-
 @RestController
 @RequestMapping("/spells")
 public class SpellsController {
 
-
     @Autowired
     private SpellsRepository spellsRepository;
 
+    //This endpoint returns all spells from a specific character...
     @GetMapping("/{character_id}")
     public ResponseEntity<List<Spells>> getCharactersByUserId(@PathVariable Long character_id) {
         List<Spells> spells = spellsRepository.findSpellsByCharacterId(character_id);
-        return new ResponseEntity<>(spells, HttpStatus.OK);
-
+        return ResponseEntity.ok(spells);
     }
 
+    //This endpoint create a spell for a specific character...
     @PostMapping
-    public void createSpell(@RequestBody RequestPostSpell data){
-        spellsRepository.save(new Spells(data));
+    public ResponseEntity<Spells> createSpell(@RequestBody RequestPostSpell data) {
+        Spells createdSpell = spellsRepository.save(new Spells(data));
+        return ResponseEntity.ok(createdSpell);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteSpell(@PathVariable Long id){
-        spellsRepository.deleteById(id);
+    //This endpoint deletes a spell from a specific character...
+    @DeleteMapping("/{spell_id}")
+    public ResponseEntity<String> deleteSpell(@PathVariable Long spell_id) {
+        spellsRepository.deleteById(spell_id);
+        return ResponseEntity.ok("Spell deleted successfully.");
 
-        }
+    }
 
 }
