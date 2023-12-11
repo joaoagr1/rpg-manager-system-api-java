@@ -17,7 +17,6 @@ import rpg.system.rpg.model.services.RequestUpdateJournal;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "character_id")
 public class Journal {
 
     @Id

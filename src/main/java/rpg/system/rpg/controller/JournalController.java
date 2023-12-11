@@ -13,6 +13,8 @@ import rpg.system.rpg.model.services.RequestPostSpell;
 import rpg.system.rpg.model.services.RequestUpdateCharacter;
 import rpg.system.rpg.model.services.RequestUpdateJournal;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/journal")
 public class JournalController {
@@ -22,12 +24,19 @@ public class JournalController {
 
     //This endpoint updates the journal from a specific character...
     @PutMapping("/{character_id}")
-    public ResponseEntity<Journal> updateJounralrByCharacterId(@PathVariable Long character_id, @RequestBody RequestUpdateJournal data) {
+    public ResponseEntity<Journal> updateJournalrByCharacterId(@PathVariable Long character_id, @RequestBody RequestUpdateJournal data) {
         Journal existingJournal = journalRepository.findById(character_id)
                 .orElseThrow(() -> new EntityNotFoundException("Character not found"));
         existingJournal.updatedata(data);
         Journal updatedCharacter = journalRepository.save(existingJournal);
         return ResponseEntity.ok(updatedCharacter);
+    }
+
+    //This endpoint returns the journal from a specific character...
+    @GetMapping("/{character_id}")
+    public ResponseEntity<List<Journal>> getJournalByCharacterId(@PathVariable Long character_id){
+        List<Journal> selectedJournal = journalRepository.findJournalByCharacterId(character_id);
+        return ResponseEntity.ok(selectedJournal);
     }
 
 
