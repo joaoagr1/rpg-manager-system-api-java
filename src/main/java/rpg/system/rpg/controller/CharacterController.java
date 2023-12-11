@@ -25,6 +25,7 @@ public class CharacterController {
 
 
     //This endpoint returns the list of all characters...
+    @CrossOrigin
     @GetMapping
     public ResponseEntity<List<RPGCharacters>> getAllCharacters() {
         List<RPGCharacters> allCharacters = charactersRepository.findAll();
@@ -33,6 +34,7 @@ public class CharacterController {
 
 
     //This endpoint returns all characters from a specific user...
+    @CrossOrigin
     @GetMapping("/user/{user_id}")
     public ResponseEntity<List<RPGCharacters>> getCharactersByUserId(@PathVariable Long user_id) {
         List<RPGCharacters> charactersFromUser = charactersRepository.findCharactersByUserId(user_id);
@@ -41,6 +43,7 @@ public class CharacterController {
 
 
     //This endpoint returns all basics information from a specific character...
+    @CrossOrigin
     @GetMapping("/{character_id}")
     public ResponseEntity<Optional<RPGCharacters>> getCharacterById(@PathVariable Long character_id) {
         Optional<RPGCharacters> character = charactersRepository.findById(character_id);
