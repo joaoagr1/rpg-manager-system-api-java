@@ -21,11 +21,11 @@ public class AttributePointsController {
     @Autowired
     private AttributePointsRepository attributePointsRepository;
 
+    //This endpoint returns the list of attributes from a specific character...
     @GetMapping("/{character_id}")
     public ResponseEntity<List<AttributePoints>> getAttributesByCharacterId(@PathVariable Long character_id) {
         List<AttributePoints> attributes = attributePointsRepository.getAttributesByCharacterId(character_id);
-        return new ResponseEntity<>(attributes, HttpStatus.OK);
-
+        return ResponseEntity.ok(attributes);
     }
 
 

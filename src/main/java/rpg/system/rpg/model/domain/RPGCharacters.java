@@ -20,7 +20,16 @@ public class RPGCharacters {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Long character_id;
+
+    @Column(name = "user_id")
+    private Long user_id;
+
+    @Column(name = "character_name")
+    private String characterName;
+
+    @Column(name = "level")
+    private Long level;
 
     @Column(name = "background")
     private String background;
@@ -28,24 +37,14 @@ public class RPGCharacters {
     @Column(name = "alignment")
     private String alignment;
 
-    @Column(name = "features")
-    private String features;
+    @Column(name = "race")
+    private String race;
 
     @Column(name = "class")
     private String class_;
 
-    @Column(name = "race")
-    private String race;
-
-    @Column(name = "level")
-    private Long level;
-
-    @Column(name = "character_name")
-    private String character_name;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User userId;
+    @Column(name = "features")
+    private String features;
 
 
     //Method for update registers in database...
@@ -53,39 +52,39 @@ public class RPGCharacters {
         if (data.background() != null) {
             this.background = data.background();
         }
-        if(data.alignment() != null){
+        if (data.alignment() != null) {
             this.alignment = data.alignment();
         }
-        if(data.features() != null){
+        if (data.features() != null) {
             this.features = data.features();
         }
-        if(data.class_() != null){
+        if (data.class_() != null) {
             this.class_ = data.class_();
         }
 
-        if(data.race() != null) {
+        if (data.race() != null) {
             this.race = data.race();
         }
 
-        if(data.level() != null){
+        if (data.level() != null) {
             this.level = data.level();
         }
 
-        if(data.character_name() != null){
-            this.character_name = data.character_name();
+        if (data.characterName() != null) {
+            this.characterName = data.characterName();
         }
 
     }
 
-    public RPGCharacters(RequestPostCharacter data){
+    public RPGCharacters(RequestPostCharacter data) {
         this.background = data.background();
         this.alignment = data.alignment();
-        this. features = data.features();
+        this.features = data.features();
         this.class_ = data.class_();
         this.race = data.race();
         this.level = data.level();
-        this.character_name = data.character_name();
-        this.userId = data.userId();
+        this.characterName = data.characterName();
+        this.user_id = data.user_id();
     }
 
 }

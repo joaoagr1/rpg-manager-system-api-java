@@ -17,7 +17,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long user_id;
 
     @Column(name = "login", length = 255)
     private String login;
@@ -27,7 +27,7 @@ public class User {
 
 
     public User(Long someNumber) {
-       this.id = someNumber;
+       this.user_id = someNumber;
     }
 
     public User(RequestPostUser data) {

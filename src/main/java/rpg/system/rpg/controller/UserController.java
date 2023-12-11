@@ -1,10 +1,8 @@
 package rpg.system.rpg.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import rpg.system.rpg.model.domain.CharacterItem;
 import rpg.system.rpg.model.domain.User;
 import rpg.system.rpg.model.repositorys.SpellsRepository;
@@ -19,10 +17,13 @@ public class UserController {
     @Autowired
     private UsersRepository usersRepository;
 
+    //This endpoint creates a new user...
     @PostMapping
-    public void createUser(@RequestBody RequestPostUser data) {
-        usersRepository.save(new User(data));
+    public ResponseEntity<User> createUser(@RequestBody RequestPostUser data) {
+        User createdUser = usersRepository.save(new User(data));
+        return ResponseEntity.ok(createdUser);
     }
+
 
 
 }

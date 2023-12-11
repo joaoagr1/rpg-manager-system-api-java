@@ -12,7 +12,7 @@ public class AttributePoints {
 
     @Id
     @Column(name = "character_id")
-    private Long characterId;
+    private Long character_id;
 
     @Column(name = "strength", nullable = false)
     private int strength;

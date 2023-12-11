@@ -10,8 +10,8 @@ public record RequestPostCharacter(
         String class_,
         String race,
         Long level,
-        String character_name,
-        User userId
+        String characterName,
+        Long user_id
         ) {
 
 }

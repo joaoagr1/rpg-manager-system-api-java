@@ -23,22 +23,24 @@ public class CharacterController {
     @Autowired
     private CharactersRepository charactersRepository;
 
+
+    //This endpoint returns the list of all characters...
     @GetMapping
-    public ResponseEntity getAllCharacters() {
-        var allcharacters = charactersRepository.findAll();
-        return ResponseEntity.ok(allcharacters);
-    }
-
-    //Find all characters for a specific user...
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<RPGCharacters>> getCharactersByUserId(@PathVariable Long userId) {
-        List<RPGCharacters> characters = charactersRepository.findCharactersByUserId(userId);
-        return new ResponseEntity<>(characters, HttpStatus.OK);
-
+    public ResponseEntity<List<RPGCharacters>> getAllCharacters() {
+        List<RPGCharacters> allCharacters = charactersRepository.findAll();
+        return ResponseEntity.ok(allCharacters);
     }
 
 
-    //Find all basics information from a specific character...
+    //This endpoint returns all characters from a specific user...
+    @GetMapping("/user/{user_id}")
+    public ResponseEntity<List<RPGCharacters>> getCharactersByUserId(@PathVariable Long user_id) {
+        List<RPGCharacters> charactersFromUser = charactersRepository.findCharactersByUserId(user_id);
+        return ResponseEntity.ok(charactersFromUser);
+    }
+
+
+    //This endpoint returns all basics information from a specific character...
     @GetMapping("/{character_id}")
     public ResponseEntity<Optional<RPGCharacters>> getCharacterById(@PathVariable Long character_id) {
         Optional<RPGCharacters> character = charactersRepository.findById(character_id);
@@ -46,31 +48,33 @@ public class CharacterController {
     }
 
 
-    //Create a new Character register on character table...
+    //This endpoint creates a new character register...
     @PostMapping
-    public void createCharacter(@RequestBody RequestPostCharacter data) {
-        charactersRepository.save(new RPGCharacters(data));
+    public ResponseEntity<RPGCharacters> createCharacter(@RequestBody RequestPostCharacter data) {
+        RPGCharacters createdCharacter = charactersRepository.save(new RPGCharacters(data));
+        return ResponseEntity.ok(createdCharacter);
     }
 
 
-    //Deleting a character register passing character_id...
+    //This endpoint deletes a character register passing character_id...
     @DeleteMapping("/{character_id}")
     public ResponseEntity<Void> deleteCharacterById(@PathVariable Long character_id) {
-        // Verifica se o personagem existe antes de excluí-lo
+        // Check if the character exists before attempting to delete
         if (charactersRepository.existsById(character_id)) {
-            // Exclui o personagem
+            // Delete the character
             charactersRepository.deleteById(character_id);
-            // Retorna ResponseEntity com HTTP 200 OK
+            // Return ResponseEntity with HTTP 204 No Content to indicate successful deletion
             return ResponseEntity.ok().build();
         } else {
-            // Se o personagem não existir, retorna HTTP 404 Not Found
+            // If the character does not exist, return HTTP 404 Not Found
             return ResponseEntity.notFound().build();
         }
     }
 
-    @PutMapping("/{id}")
-    public RPGCharacters updateCharacterById(@PathVariable Long id, @RequestBody RequestUpdateCharacter data) {
-        RPGCharacters existingCharacter = charactersRepository.findById(id)
+    //This endpoint updates a character register...
+    @PutMapping("/{character_id}")
+    public RPGCharacters updateCharacterById(@PathVariable Long character_id, @RequestBody RequestUpdateCharacter data) {
+        RPGCharacters existingCharacter = charactersRepository.findById(character_id)
                 .orElseThrow(() -> new EntityNotFoundException("Character not found"));
         existingCharacter.updatedata(data);
         RPGCharacters updatedCharacter = charactersRepository.save(existingCharacter);
