@@ -3,11 +3,8 @@ package rpg.system.rpg.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import rpg.system.rpg.model.domain.CharacterItem;
 import rpg.system.rpg.model.domain.User;
-import rpg.system.rpg.model.repositorys.SpellsRepository;
 import rpg.system.rpg.model.repositorys.UsersRepository;
-import rpg.system.rpg.model.services.RequestPostItem;
 import rpg.system.rpg.model.services.RequestPostUser;
 
 @RestController
@@ -25,6 +22,16 @@ public class UserController {
     }
 
 
+    @GetMapping("/login")
+    public Long login(@RequestParam String login, @RequestParam String password) {
+        Long userId = usersRepository.userAuthentication(login, password);
+
+        if (userId != null) {
+            return userId;
+        } else {
+            return 99L;
+        }
+    }
 
 
 
