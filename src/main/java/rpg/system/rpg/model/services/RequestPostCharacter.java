@@ -11,7 +11,9 @@ public record RequestPostCharacter(
         String race,
         Long level,
         String characterName,
-        Long user_id
+        Long user_id,
+        Long gp,
+        Long ac
         ) {
 
 }

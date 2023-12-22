@@ -64,5 +64,9 @@ public class AttributePoints {
             this.charisma = dataAttribute.charisma();
         }
 
+        if (dataAttribute.passivePerception() != null) {
+            this.passivePerception = dataAttribute.passivePerception();
+        }
+
     }
 }

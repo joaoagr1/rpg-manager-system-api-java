@@ -9,7 +9,9 @@ public record RequestUpdateCharacter(
         String class_,
         String race,
         Long level,
-        String characterName
+        String characterName,
+        Long gp,
+        Long ac
         ) {
 
 }

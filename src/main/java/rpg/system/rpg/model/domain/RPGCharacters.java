@@ -20,6 +20,12 @@ public class RPGCharacters {
     @Column(name = "id")
     private Long character_id;
 
+    @Column(name = "gp")
+    private Long gp;
+
+    @Column(name = "ac")
+    private Long ac;
+
     @Column(name = "user_id")
     private Long user_id;
 
@@ -83,6 +89,8 @@ public class RPGCharacters {
         this.level = data.level();
         this.characterName = data.characterName();
         this.user_id = data.user_id();
+        this.gp = data.gp();
+        this.ac = data.ac();
 
         Journal characterJournal = new Journal();
 

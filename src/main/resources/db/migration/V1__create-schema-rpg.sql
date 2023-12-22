@@ -18,6 +18,8 @@ CREATE TABLE Characters (
     race VARCHAR(255),
     level INT,
     character_name VARCHAR(255),
+    gp INT,
+    ac INT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(id)
