@@ -38,6 +38,32 @@ CREATE TABLE AttributePoints (
     FOREIGN KEY (character_id) REFERENCES Characters(id)
 ) ENGINE=InnoDB;
 
+
+CREATE TABLE Skills (
+    character_id INT PRIMARY KEY,
+    Acrobatics  INT,
+    Animal_Handling INT,
+    Arcana  INT,
+    Athletics  INT,
+    Deception  INT,
+    History  INT,
+    Insight  INT,
+    Intimidation   INT,
+    Investigation   INT,
+    Medicine   INT,
+    Nature   INT,
+    Perception   INT,
+    Performance   INT,
+    Persuasion   INT,
+    Religion   INT,
+    Sleight_of_Hand INT,
+    Stealth   INT,
+    Survival INT,
+    FOREIGN KEY (character_id) REFERENCES Characters(id)
+) ENGINE=InnoDB;
+
+
+
 -- Tabela Spells
 CREATE TABLE Spells (
     spell_id INT PRIMARY KEY AUTO_INCREMENT,

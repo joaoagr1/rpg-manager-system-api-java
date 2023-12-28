@@ -78,6 +78,14 @@ public class RPGCharacters {
             this.characterName = data.characterName();
         }
 
+        if (data.gp() != null) {
+            this.gp = data.gp();
+        }
+
+        if (data.ac() != null) {
+            this.ac = data.ac();
+        }
+
     }
 
     public RPGCharacters(RequestPostCharacter data) {
