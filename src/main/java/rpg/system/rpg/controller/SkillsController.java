@@ -9,6 +9,7 @@ import rpg.system.rpg.model.domain.Skills;
 import rpg.system.rpg.model.repositorys.AttributePointsRepository;
 import rpg.system.rpg.model.repositorys.SkillRepository;
 import rpg.system.rpg.model.services.RequestUpdateAttributes;
+import rpg.system.rpg.model.services.RequestUpdateSkills;
 
 import java.util.List;
 
@@ -26,12 +27,16 @@ public class SkillsController {
         return ResponseEntity.ok(skills);
     }
 
-   // @PutMapping("/{character_id}")
-    //public ResponseEntity<AttributePoints> updateAttributePointsByCharacterId(@PathVariable Long character_id, @RequestBody RequestUpdateAttributes dataAttribute) {
-      //  AttributePoints existingAttributes = skillRepository.findById(character_id)
-        //        .orElseThrow(() -> new EntityNotFoundException("Attributes not found"));
-        //existingAttributes.updatedataAttribute(dataAttribute);
-      //  AttributePoints updatedAttributes = skillRepository.save(existingAttributes);
-       // return ResponseEntity.ok(updatedAttributes);
-  //  }
+    @PutMapping("/{character_id}")
+   public ResponseEntity<Skills> updateSkillsByCharacterId(@PathVariable Long character_id, @RequestBody RequestUpdateSkills dataSkills) {
+     Skills existingSkills = skillRepository.findById(character_id)
+           .orElseThrow(() -> new EntityNotFoundException("Skills not found"));
+   existingSkills.updatedataSkills(dataSkills);
+        Skills updatedSkills = skillRepository.save(existingSkills);
+    return ResponseEntity.ok(updatedSkills);
+    }
+
+
+
+
 }
