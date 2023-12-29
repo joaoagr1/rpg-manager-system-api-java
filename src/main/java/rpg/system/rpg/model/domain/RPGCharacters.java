@@ -20,6 +20,9 @@ public class RPGCharacters {
     @Column(name = "id")
     private Long character_id;
 
+    @Column(name= "image")
+    private byte[] image;
+
     @Column(name = "gp")
     private Long gp;
 
@@ -84,6 +87,10 @@ public class RPGCharacters {
 
         if (data.ac() != null) {
             this.ac = data.ac();
+        }
+
+        if (data.image() != null) {
+            this.image = data.image().getBytes();
         }
 
     }

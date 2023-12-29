@@ -11,7 +11,8 @@ public record RequestUpdateCharacter(
         Long level,
         String characterName,
         Long gp,
-        Long ac
+        Long ac,
+        String image
         ) {
 
 }

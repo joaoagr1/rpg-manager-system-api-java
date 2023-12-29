@@ -20,6 +20,7 @@ CREATE TABLE Characters (
     character_name VARCHAR(255),
     gp INT,
     ac INT,
+    image LONGBLOB,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(id)
