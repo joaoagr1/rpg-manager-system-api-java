@@ -50,7 +50,7 @@ public class CharacterController {
     }
 
 
-    @PostMapping("/uploadFoto/{personagemId}")
+        @PostMapping("/uploadFoto/{personagemId}")
     public ResponseEntity<String> uploadFoto(@PathVariable Long personagemId, @RequestParam("foto") MultipartFile foto) {
         try {
             charactersRepository.saveFoto(personagemId, foto.getBytes());
