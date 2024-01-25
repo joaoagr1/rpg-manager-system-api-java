@@ -2,15 +2,19 @@ package rpg.system.rpg.controller;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import rpg.system.rpg.model.repositorys.CharactersRepository;
 import rpg.system.rpg.model.domain.RPGCharacters;
 import rpg.system.rpg.model.services.RequestPostCharacter;
 import rpg.system.rpg.model.services.RequestUpdateCharacter;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +34,30 @@ public class CharacterController {
     public ResponseEntity<List<RPGCharacters>> getAllCharacters() {
         List<RPGCharacters> allCharacters = charactersRepository.findAll();
         return ResponseEntity.ok(allCharacters);
+    }
+
+    @GetMapping("/foto/{personagemId}")
+    public ResponseEntity<byte[]> getFoto(@PathVariable Long personagemId) {
+        byte[] foto = charactersRepository.findFotoById(personagemId);
+
+        if (foto != null && foto.length > 0) {
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.IMAGE_JPEG);  // ou MediaType.IMAGE_PNG, dependendo do formato da imagem
+            return new ResponseEntity<>(foto, headers, HttpStatus.OK);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+    @PostMapping("/uploadFoto/{personagemId}")
+    public ResponseEntity<String> uploadFoto(@PathVariable Long personagemId, @RequestParam("foto") MultipartFile foto) {
+        try {
+            charactersRepository.saveFoto(personagemId, foto.getBytes());
+            return ResponseEntity.ok("Foto salva com sucesso!");
+        } catch (IOException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao salvar a foto.");
+        }
     }
 
 
