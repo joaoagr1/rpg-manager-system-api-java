@@ -62,22 +62,8 @@ To install and set up the RPG Character Management API, follow these steps:
 
 ## Endpoints
 
-Here you can list all available endpoints in your API, including HTTP methods, parameters, return types, etc. Example:
+![image](https://github.com/joaoagr1/rpg-manager-system-api-java/assets/125477822/ad23bf75-82b6-450e-b98d-c7d83a7e079f)
 
-### `/api/users`
-
-- **GET** `/api/users`: Returns all registered users.
-- **GET** `/api/users/:id`: Returns a specific user by ID.
-- **POST** `/api/users`: Creates a new user.
-- **PUT** `/api/users/:id`: Updates the data of an existing user.
-- **DELETE** `/api/users/:id`: Removes a user from the system.
-
-### `/api/products`
-
-- **GET** `/api/products`: Returns all available products.
-- **POST** `/api/products`: Adds a new product to the catalog.
-- **PUT** `/api/products/:id`: Updates the information of an existing product.
-- **DELETE** `/api/products/:id`: Removes a product from the catalog.
 
 ## Contribution
 
