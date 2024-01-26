@@ -1,6 +1,6 @@
 # 🚀 D&D Sheet Manager System
 
-The RPG Character Sheet Management API is designed to streamline the process of managing character sheets for role-playing games (RPGs). It provides endpoints for creating, updating, retrieving, and deleting character sheets, as well as functionalities such as character stats tracking, inventory management, and character progression. This API serves as a centralized platform for players and game masters to efficiently manage their characters, enabling seamless integration with the D&D 5e system.
+The RPG Character Sheet Management API is designed to streamline the process of managing character sheets for role-playing games (RPGs). It provides endpoints for creating, updating, retrieving, and deleting character sheets, as well as functionalities such as character stats tracking, inventory management, and character progression. This API serves as a centralized platform for players and game masters to efficiently manage their characters, enabling seamless integration with the D&D 5e system.   
 
 ## 🔍 Summary
 
