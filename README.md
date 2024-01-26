@@ -81,6 +81,4 @@ If you want to contribute to the project, follow the steps below:
 
 ## License
 
-[Insert the license used for the project.]
-
-Feel free to customize this README according to the specific needs of your API, adding more details, code examples, and relevant information for users and contributors.
+Este projeto está licenciado sob a [Licença MIT](LICENSE).
