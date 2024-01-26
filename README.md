@@ -1,6 +1,6 @@
 # 🚀 D&D Sheet Manager System
 
-The RPG Character Sheet Management API is designed to streamline the process of managing character sheets for role-playing games (RPGs). It provides endpoints for creating, updating, retrieving, and deleting character sheets, as well as functionalities such as character stats tracking, inventory management, and character progression. This API serves as a centralized platform for players and game masters to efficiently manage their characters, enabling seamless integration with the D&D 5e system.   
+The RPG Character Sheet Management API is designed to streamline the process of managing character sheets for role-playing games (RPGs). It provides endpoints for creating, updating, retrieving, and deleting character sheets, as well as functionalities such as character stats tracking, inventory management, and character progression. This API serves as a centralized platform for players and game masters to efficiently manage their characters, enabling seamless integration with the D&D 5e system.
 
 ## 🔍 Summary
 
@@ -12,23 +12,15 @@ The RPG Character Sheet Management API is designed to streamline the process of 
 6. [Contribution](#contribution) 🤝
 7. [License](#license) 📝
 
-
-
 ## Prerequisites
 
 Before you begin, make sure you have the following prerequisites installed and set up:
 
 - **Java Development Kit (JDK)**: Install JDK 11 or higher. You can download it from the [Oracle website](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) or use OpenJDK.
-
 - **Apache Maven**: Install Apache Maven, a build automation tool used primarily for Java projects. You can download it from the [Apache Maven website](https://maven.apache.org/download.cgi).
-
 - **Spring Boot**: Ensure you have Spring Boot set up. You can include Spring Boot dependencies in your Maven `pom.xml` file.
-
 - **MySQL Database**: Set up a MySQL database instance for storing character data. You can download MySQL Community Server from the [MySQL website](https://dev.mysql.com/downloads/mysql/) or use a cloud-based service like Amazon RDS or Google Cloud SQL.
-
 - **Git**: Install Git to clone the repository and manage version control. You can download it from the [Git website](https://git-scm.com/).
-
-
 
 ## Installation
 
@@ -52,7 +44,7 @@ To install and set up the RPG Character Management API, follow these steps:
     mvn clean install
     ```
 
-This will download dependencies and build the project. Ensure that you have Maven installed on your machine. If you haven't installed Maven yet, you can download it from the [Apache Maven website](https://maven.apache.org/download.cgi).
+   This will download dependencies and build the project. Ensure that you have Maven installed on your machine. If you haven't installed Maven yet, you can download it from the [Apache Maven website](https://maven.apache.org/download.cgi).
 
 4. Run the application:
 
@@ -60,16 +52,7 @@ This will download dependencies and build the project. Ensure that you have Mave
     mvn spring-boot:run
     ```
 
-The API should now be running locally at `http://localhost:8080`. Make sure all configurations are set up correctly before using the API in a production environment.
-
-
-
-
-## Configuration
-
-- Create a configuration file `.env` based on the `.env.example` file and fill in the necessary information, such as API keys, database settings, etc.
-
-
+   The API should now be running locally at `http://localhost:8080`. Make sure all configurations are set up correctly before using the API in a production environment.
 
 ## Usage
 
@@ -77,13 +60,9 @@ The API should now be running locally at `http://localhost:8080`. Make sure all 
 - Access the API at: `http://localhost:3000` (or the configured port)
 - Ensure all configurations have been set up correctly before using the API in a production environment.
 
-
-
 ## Endpoints
 
 Here you can list all available endpoints in your API, including HTTP methods, parameters, return types, etc. Example:
-
-
 
 ### `/api/users`
 
@@ -93,16 +72,12 @@ Here you can list all available endpoints in your API, including HTTP methods, p
 - **PUT** `/api/users/:id`: Updates the data of an existing user.
 - **DELETE** `/api/users/:id`: Removes a user from the system.
 
-
-
 ### `/api/products`
 
 - **GET** `/api/products`: Returns all available products.
 - **POST** `/api/products`: Adds a new product to the catalog.
 - **PUT** `/api/products/:id`: Updates the information of an existing product.
 - **DELETE** `/api/products/:id`: Removes a product from the catalog.
-
-
 
 ## Contribution
 
