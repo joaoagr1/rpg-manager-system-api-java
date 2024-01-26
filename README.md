@@ -28,13 +28,13 @@ To install and set up the RPG Character Management API, follow these steps:
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/joaoagr1/rpg-manager-system-api-java.git
     ```
 
 2. Navigate to the API directory:
 
     ```bash
-    cd your-repository
+    cd rpg-manager-system-api-java
     ```
 
 3. Build the project using Maven:
