@@ -28,9 +28,36 @@ Before you begin, make sure you have the following prerequisites installed and s
 
 ## Installation
 
-- Clone the repository: `git clone https://github.com/your-username/your-repository.git`
-- Navigate to the API directory: `cd api-name`
-- Install dependencies: `npm install` or `yarn install`
+To install and set up the RPG Character Management API, follow these steps:
+
+1. Clone the repository to your local machine:
+
+    ```bash
+    git clone https://github.com/your-username/your-repository.git
+    ```
+
+2. Navigate to the API directory:
+
+    ```bash
+    cd your-repository
+    ```
+
+3. Build the project using Maven:
+
+    ```bash
+    mvn clean install
+    ```
+
+This will download dependencies and build the project. Ensure that you have Maven installed on your machine. If you haven't installed Maven yet, you can download it from the [Apache Maven website](https://maven.apache.org/download.cgi).
+
+4. Run the application:
+
+    ```bash
+    mvn spring-boot:run
+    ```
+
+The API should now be running locally at `http://localhost:8080`. Make sure all configurations are set up correctly before using the API in a production environment.
+
 
 ## Configuration
 
