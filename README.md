@@ -80,7 +80,7 @@ If you want to contribute to the project, follow the steps below:
 
 ## License
 
-This project is licensed under the [Licença MIT](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
 
 
