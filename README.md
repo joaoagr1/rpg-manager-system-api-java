@@ -81,3 +81,6 @@ If you want to contribute to the project, follow the steps below:
 ## License
 
 Este projeto está licenciado sob a [Licença MIT](LICENSE).
+
+![Exemplo de GIF](https://media.giphy.com/media/l41Yn4dltbzN19FFu/giphy.gif)
+
