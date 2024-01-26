@@ -12,6 +12,8 @@ The RPG Character Sheet Management API is designed to streamline the process of 
 6. [Contribution](#contribution) 🤝
 7. [License](#license) 📝
 
+
+
 ## Prerequisites
 
 Before you begin, make sure you have the following prerequisites installed and set up:
@@ -25,6 +27,8 @@ Before you begin, make sure you have the following prerequisites installed and s
 - **MySQL Database**: Set up a MySQL database instance for storing character data. You can download MySQL Community Server from the [MySQL website](https://dev.mysql.com/downloads/mysql/) or use a cloud-based service like Amazon RDS or Google Cloud SQL.
 
 - **Git**: Install Git to clone the repository and manage version control. You can download it from the [Git website](https://git-scm.com/).
+
+
 
 ## Installation
 
@@ -59,9 +63,13 @@ This will download dependencies and build the project. Ensure that you have Mave
 The API should now be running locally at `http://localhost:8080`. Make sure all configurations are set up correctly before using the API in a production environment.
 
 
+
+
 ## Configuration
 
 - Create a configuration file `.env` based on the `.env.example` file and fill in the necessary information, such as API keys, database settings, etc.
+
+
 
 ## Usage
 
@@ -69,9 +77,13 @@ The API should now be running locally at `http://localhost:8080`. Make sure all 
 - Access the API at: `http://localhost:3000` (or the configured port)
 - Ensure all configurations have been set up correctly before using the API in a production environment.
 
+
+
 ## Endpoints
 
 Here you can list all available endpoints in your API, including HTTP methods, parameters, return types, etc. Example:
+
+
 
 ### `/api/users`
 
@@ -81,12 +93,16 @@ Here you can list all available endpoints in your API, including HTTP methods, p
 - **PUT** `/api/users/:id`: Updates the data of an existing user.
 - **DELETE** `/api/users/:id`: Removes a user from the system.
 
+
+
 ### `/api/products`
 
 - **GET** `/api/products`: Returns all available products.
 - **POST** `/api/products`: Adds a new product to the catalog.
 - **PUT** `/api/products/:id`: Updates the information of an existing product.
 - **DELETE** `/api/products/:id`: Removes a product from the catalog.
+
+
 
 ## Contribution
 
