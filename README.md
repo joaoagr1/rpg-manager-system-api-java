@@ -2,31 +2,66 @@
 
 The RPG Character Sheet Management API is designed to streamline the process of managing character sheets for role-playing games (RPGs). It provides endpoints for creating, updating, retrieving, and deleting character sheets, as well as functionalities such as character stats tracking, inventory management, and character progression. This API serves as a centralized platform for players and game masters to efficiently manage their characters, enabling seamless integration with the D&D 5e system.
 
-## 🔍 Sumário
+## 🔍 Summary
 
-1. [Pré-Requisitos](#pré-requisitos)
-2. [Instalação](#instalação)
-3. [Configuração](#configuração)
-4. [Utilização](#utilização)
-5. [Endpoints](#endpoints)
-6. [Contribuição](#contribuição)
-7. [Licença](#licença)
+1. [Prerequisites](#prerequisites) 📋
+2. [Installation](#installation) 🛠️
+3. [Configuration](#configuration) ⚙️
+4. [Usage](#usage) 🚀
+5. [Endpoints](#endpoints) 🛣️
+6. [Contribution](#contribution) 🤝
+7. [License](#license) 📝
 
-## Pré-Requisitos
+## Prerequisites
 
-List all prerequisites necessary to install and run the API, including technologies, libraries, databases, etc.
+Before you begin, make sure you have the following prerequisites installed and set up:
 
-## Instalação
+Java Development Kit (JDK): Install JDK 11 or higher. You can download it from the Oracle website or use OpenJDK.
+
+Apache Maven: Install Apache Maven, a build automation tool used primarily for Java projects. You can download it from the Apache Maven website.
+
+Spring Boot: Ensure you have Spring Boot set up. You can include Spring Boot dependencies in your Maven pom.xml file.
+
+MySQL Database: Set up a MySQL database instance for storing character data. You can download MySQL Community Server from the MySQL website or use a cloud-based service like Amazon RDS or Google Cloud SQL.
+
+Git: Install Git to clone the repository and manage version control. You can download it from the Git website.
+
+#Configure Database
+Create a MySQL database (rpgdata) and ensure you have the database connection details (URL, username, password) handy for configuring the application.
+
+#Set Environment Variables
+Configure environment variables for your application properties, including database connection details, API keys (if applicable), and any sensitive information.
+
+Clone Repository
+Clone the RPG Character Management API repository to your local machine:
+
+bash
+Copy code
+git clone https://github.com/your-username/rpg-character-api.git
+Build and Run
+Navigate to the project directory and build the Spring Boot application using Maven:
+
+bash
+Copy code
+cd rpg-character-api
+mvn clean install
+Run the application:
+
+bash
+Copy code
+mvn spring-boot:run
+The API should now be running locally at http://localhost:8080. Ensure all configurations have been set up correctly before using the API in a production environment.
+## Installation
 
 - Clone the repository: `git clone https://github.com/your-username/your-repository.git`
 - Navigate to the API directory: `cd api-name`
 - Install dependencies: `npm install` or `yarn install`
 
-## Configuração
+## Configuration
 
 - Create a configuration file `.env` based on the `.env.example` file and fill in the necessary information, such as API keys, database settings, etc.
 
-## Utilização
+## Usage
 
 - To start the local server, run: `npm start` or `yarn start`
 - Access the API at: `http://localhost:3000` (or the configured port)
@@ -51,7 +86,7 @@ Here you can list all available endpoints in your API, including HTTP methods, p
 - **PUT** `/api/products/:id`: Updates the information of an existing product.
 - **DELETE** `/api/products/:id`: Removes a product from the catalog.
 
-## Contribuição
+## Contribution
 
 If you want to contribute to the project, follow the steps below:
 1. Fork the project
@@ -60,7 +95,7 @@ If you want to contribute to the project, follow the steps below:
 4. Push to the branch (`git push origin feature/new-feature`)
 5. Create a new Pull Request
 
-## Licença
+## License
 
 [Insert the license used for the project.]
 
