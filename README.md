@@ -6,11 +6,10 @@ The RPG Character Sheet Management API is designed to streamline the process of 
 
 1. [Prerequisites](#prerequisites) 📋
 2. [Installation](#installation) 🛠️
-3. [Configuration](#configuration) ⚙️
-4. [Usage](#usage) 🚀
-5. [Endpoints](#endpoints) 🛣️
-6. [Contribution](#contribution) 🤝
-7. [License](#license) 📝
+3. [Usage](#usage) 🚀
+4. [Endpoints](#endpoints) 🛣️
+5. [Contribution](#contribution) 🤝
+6. [License](#license) 📝
 
 ## Prerequisites
 
