@@ -56,9 +56,14 @@ To install and set up the RPG Character Management API, follow these steps:
 
 ## Usage
 
-- To start the local server, run: `npm start` or `yarn start`
-- Access the API at: `http://localhost:3000` (or the configured port)
-- Ensure all configurations have been set up correctly before using the API in a production environment.
+To start the local server, run the following command:
+
+```bash
+java -jar your-application.jar
+```
+Access the API at: http://localhost:8080 (or the configured port)
+
+Ensure all configurations have been set up correctly before using the API in a production environment.
 
 ## Endpoints
 
