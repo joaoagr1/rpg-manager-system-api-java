@@ -1,7 +1,5 @@
 package rpg.system.rpg.model.services;
 
-import org.antlr.v4.runtime.misc.NotNull;
-
 public record RequestUpdateCharacter(
         String background,
         String alignment,
@@ -13,6 +11,6 @@ public record RequestUpdateCharacter(
         Long gp,
         Long ac,
         String image
-        ) {
+) {
 
 }

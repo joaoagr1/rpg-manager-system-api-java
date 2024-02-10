@@ -1,35 +1,36 @@
 package rpg.system.rpg.model.domain;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import rpg.system.rpg.model.services.RequestPostSpell;
 
-@Table(name = "Spells")
-@Entity(name = "Spells")
+@Table(name = "spells")
+@Entity(name = "spells")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "spell_id")
+@EqualsAndHashCode(of = "spellId")
 public class Spells {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long spell_id;
-
+    @Column(name = "spell_id")
+    private Long spellId;
 
     @Column(name = "character_id")
-    private Long character_id;
+    private Long characterId;
 
-    @Column(name = "name", length = 255)
+    @NotBlank
     private String name;
 
-    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-
     public Spells(RequestPostSpell data) {
-        this.character_id = data.character_id();
+        this.characterId = data.character_id();
         this.name = data.name();
         this.description = data.description();
     }

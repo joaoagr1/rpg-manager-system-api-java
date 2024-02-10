@@ -22,22 +22,20 @@ public class JournalController {
     @Autowired
     private JournalRepository journalRepository;
 
-    //This endpoint updates the journal from a specific character...
     @PutMapping("/{character_id}")
     public ResponseEntity<Journal> updateJournalrByCharacterId(@PathVariable Long character_id, @RequestBody RequestUpdateJournal data) {
         Journal existingJournal = journalRepository.findById(character_id)
                 .orElseThrow(() -> new EntityNotFoundException("Character not found"));
+
         existingJournal.updatedata(data);
         Journal updatedCharacter = journalRepository.save(existingJournal);
         return ResponseEntity.ok(updatedCharacter);
     }
 
-    //This endpoint returns the journal from a specific character...
     @GetMapping("/{character_id}")
     public ResponseEntity<List<Journal>> getJournalByCharacterId(@PathVariable Long character_id){
         List<Journal> selectedJournal = journalRepository.findJournalByCharacterId(character_id);
         return ResponseEntity.ok(selectedJournal);
     }
-
 
 }

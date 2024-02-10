@@ -8,9 +8,12 @@ import rpg.system.rpg.model.domain.Spells;
 import rpg.system.rpg.model.domain.User;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UsersRepository extends JpaRepository <User, Long> {
+
     @Query(value = "SELECT id FROM users WHERE login = :login AND password_hash = :password_hash", nativeQuery = true)
-    Long userAuthentication(@Param("login") String login, @Param("password_hash") String passwordHash);
+    Optional<Long> userAuthentication(@Param("login") String login, @Param("password_hash") String passwordHash);
+
 }

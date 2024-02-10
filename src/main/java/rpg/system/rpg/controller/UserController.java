@@ -1,5 +1,6 @@
 package rpg.system.rpg.controller;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,25 +15,16 @@ public class UserController {
     @Autowired
     private UsersRepository usersRepository;
 
-    //This endpoint creates a new user...
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody RequestPostUser data) {
         User createdUser = usersRepository.save(new User(data));
         return ResponseEntity.ok(createdUser);
     }
 
-
     @GetMapping("/login")
     public Long login(@RequestParam String login, @RequestParam String password) {
-        Long userId = usersRepository.userAuthentication(login, password);
-
-        if (userId != null) {
-            return userId;
-        } else {
-            return 99L;
-        }
+        return usersRepository.userAuthentication(login, password)
+                .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado!"));
     }
-
-
 
 }

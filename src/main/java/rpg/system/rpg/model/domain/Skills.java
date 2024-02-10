@@ -1,6 +1,7 @@
 package rpg.system.rpg.model.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -14,65 +15,66 @@ import rpg.system.rpg.model.services.RequestUpdateSkills;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(of = "characterId")
 public class Skills {
 
 
     @Id
     @Column(name = "character_id")
-    private Long character_id;
+    private Long characterId;
 
-    @Column(name = "Acrobatics", nullable = false)
+    @NotNull
     private Long acrobatics;
 
-    @Column(name = "Animal_Handling", nullable = false)
-    private Long animal_Handling;
+    @Column(name = "animal_handling", nullable = false)
+    private Long animalHandling;
 
-    @Column(name = "Arcana", nullable = false)
+    @NotNull
     private Long arcana;
 
-    @Column(name = "Athletics", nullable = false)
+    @NotNull
     private Long athletics;
 
-    @Column(name = "Deception", nullable = false)
+    @NotNull
     private Long deception;
 
-    @Column(name = "History", nullable = false)
+    @NotNull
     private Long history;
 
-    @Column(name = "Insight", nullable = false)
+    @NotNull
     private Long insight;
 
-    @Column(name = "Intimidation", nullable = false)
+    @NotNull
     private Long intimidation;
 
-    @Column(name = "Investigation", nullable = false)
+    @NotNull
     private Long investigation;
 
-    @Column(name = "Medicine", nullable = false)
+    @NotNull
     private Long medicine;
 
-    @Column(name = "Nature", nullable = false)
+    @NotNull
     private Long nature;
 
-    @Column(name = "Perception", nullable = false)
+    @NotNull
     private Long perception;
 
-    @Column(name = "Performance", nullable = false)
+    @NotNull
     private Long performance;
 
-    @Column(name = "Persuasion", nullable = false)
+    @NotNull
     private Long persuasion;
 
-    @Column(name = "Religion", nullable = false)
+    @NotNull
     private Long religion;
 
-    @Column(name = "Sleight_of_Hand", nullable = false)
-    private Long sleight_of_Hand;
+    @Column(name = "sleight_of_hand", nullable = false)
+    private Long sleightOfHand;
 
-    @Column(name = "Stealth", nullable = false)
+    @NotNull
     private Long stealth;
 
-    @Column(name = "Survival", nullable = false)
+    @NotNull
     private Long survival;
 
 
@@ -81,7 +83,7 @@ public class Skills {
             this.acrobatics = dataSkills.acrobatics();
         }
         if (dataSkills.animal_Handling() != null) {
-            this.animal_Handling = dataSkills.animal_Handling();
+            this.animalHandling = dataSkills.animal_Handling();
         }
         if (dataSkills.arcana() != null) {
             this.arcana = dataSkills.arcana();
@@ -132,7 +134,7 @@ public class Skills {
         }
 
         if (dataSkills.sleight_of_Hand() != null) {
-            this.sleight_of_Hand = dataSkills.sleight_of_Hand();
+            this.sleightOfHand = dataSkills.sleight_of_Hand();
         }
 
         if (dataSkills.stealth() != null) {

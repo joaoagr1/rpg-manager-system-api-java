@@ -2,16 +2,11 @@ package rpg.system.rpg.controller;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rpg.system.rpg.model.domain.AttributePoints;
-import rpg.system.rpg.model.domain.Journal;
-import rpg.system.rpg.model.domain.Spells;
 import rpg.system.rpg.model.repositorys.AttributePointsRepository;
-import rpg.system.rpg.model.repositorys.CharactersRepository;
 import rpg.system.rpg.model.services.RequestUpdateAttributes;
-import rpg.system.rpg.model.services.RequestUpdateJournal;
 
 import java.util.List;
 
@@ -22,7 +17,6 @@ public class AttributePointsController {
     @Autowired
     private AttributePointsRepository attributePointsRepository;
 
-    //This endpoint returns the list of attributes from a specific character...
     @GetMapping("/{character_id}")
     public ResponseEntity<List<AttributePoints>> getAttributesByCharacterId(@PathVariable Long character_id) {
         List<AttributePoints> attributes = attributePointsRepository.getAttributesByCharacterId(character_id);

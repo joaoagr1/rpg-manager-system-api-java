@@ -13,7 +13,8 @@ import rpg.system.rpg.model.services.RequestUpdateCharacter;
 import rpg.system.rpg.model.services.RequestUpdateJournal;
 
 @Entity(name = "characterjournal")
-@Table(name = "characterjournal")
+@Table(name = "character_journal")
+@EqualsAndHashCode(of = "characterId")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,17 +22,12 @@ public class Journal {
 
     @Id
     @Column(name = "character_id")
-    private Long character_id;
+    private Long characterId;
 
-    @Column(name = "journal", columnDefinition = "TEXT")
     private String journal;
 
     public void updatedata(RequestUpdateJournal data) {
         this.journal=data.journal();
-
-
-
     }
-
 
 }
