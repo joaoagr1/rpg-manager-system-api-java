@@ -1,9 +1,8 @@
 package rpg.system.rpg.model.services;
 
-import org.antlr.v4.runtime.misc.NotNull;
-import rpg.system.rpg.model.domain.User;
-
 public record RequestPostCharacter(
+
+
         String background,
         String alignment,
         String features,
@@ -14,6 +13,6 @@ public record RequestPostCharacter(
         Long user_id,
         Long gp,
         Long ac
-        ) {
+) {
 
 }

@@ -17,23 +17,20 @@ public class CharacterItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long characteritems_id;
+    @Column(name = "characteritems_id")
+    private Long characterItemsId;
 
 
     @Column(name = "character_id")
-    private Long character_id;
+    private Long characterId;
 
-
-    @Column(name = "name", length = 255)
     private String name;
 
-    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     public CharacterItem(RequestPostItem data) {
-        this.character_id = data.character_id();
+        this.characterId = data.character_id();
         this.description = data.description();
         this.name = data.name();
-
     }
 }

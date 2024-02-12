@@ -20,42 +20,33 @@ public class RPGCharacters {
     @Column(name = "id")
     private Long character_id;
 
-    @Column(name= "image")
     private byte[] image;
 
-    @Column(name = "gp")
     private Long gp;
 
-    @Column(name = "ac")
     private Long ac;
 
     @Column(name = "user_id")
-    private Long user_id;
+    private Long userId;
 
     @Column(name = "character_name")
     private String characterName;
 
-    @Column(name = "level")
     private Long level;
 
-    @Column(name = "background")
     private String background;
 
-    @Column(name = "alignment")
     private String alignment;
 
-    @Column(name = "race")
     private String race;
 
     @Column(name = "class")
     private String class_;
 
-    @Column(name = "features")
     private String features;
 
 
-    //Method for update registers in database...
-    public void updatedata(RequestUpdateCharacter data) {
+    public void updateData(RequestUpdateCharacter data) {
         if (data.background() != null) {
             this.background = data.background();
         }
@@ -103,12 +94,11 @@ public class RPGCharacters {
         this.race = data.race();
         this.level = data.level();
         this.characterName = data.characterName();
-        this.user_id = data.user_id();
+        this.userId = data.user_id();
         this.gp = data.gp();
         this.ac = data.ac();
 
         Journal characterJournal = new Journal();
-
+    }
 
 }
-    }

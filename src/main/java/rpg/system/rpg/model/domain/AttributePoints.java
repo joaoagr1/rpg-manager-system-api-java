@@ -1,6 +1,7 @@
 package rpg.system.rpg.model.domain;
 
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import rpg.system.rpg.model.services.RequestUpdateAttributes;
@@ -10,11 +11,12 @@ import rpg.system.rpg.model.services.RequestUpdateCharacter;
 @Table(name = "attributepoints")
 @Getter
 @Setter
+@EqualsAndHashCode(of = "characterId")
 public class AttributePoints {
 
     @Id
     @Column(name = "character_id")
-    private Long character_id;
+    private Long characterId;
 
     @Column(name = "strength", nullable = false)
     private Long strength;

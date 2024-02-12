@@ -69,7 +69,7 @@ CREATE TABLE Skills (
 CREATE TABLE Spells (
     spell_id INT PRIMARY KEY AUTO_INCREMENT,
     character_id INT,
-    name VARCHAR(255),
+    name VARCHAR(255) NOT NULL,
     description TEXT,
     FOREIGN KEY (character_id) REFERENCES Characters(id)
 ) ENGINE=InnoDB;
