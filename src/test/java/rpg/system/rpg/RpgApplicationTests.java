@@ -5,6 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class RpgApplicationTests {
+	//spring.flyway.schemas=rpgdata
 
 	@Test
 	void contextLoads() {
