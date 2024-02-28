@@ -1,85 +1,82 @@
--- Tabela Users
-CREATE TABLE Users (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    login VARCHAR(255) NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+-- tabela users
+create table users (
+id int primary key auto_increment,
+login varchar(255) not null,
+password_hash varchar(255) not null,
+created_at timestamp default current_timestamp,
+updated_at timestamp default current_timestamp on update current_timestamp
 );
 
--- Tabela Characters
-CREATE TABLE Characters (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT,
-    alignment VARCHAR(255),
-    background VARCHAR(255),
-    features TEXT,
-    class VARCHAR(255),
-    race VARCHAR(255),
-    level INT,
-    character_name VARCHAR(255),
-    gp INT,
-    ac INT,
-    image LONGBLOB,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES Users(id)
-) ENGINE=InnoDB;
+-- tabela characters
+create table characters (
+id int primary key auto_increment,
+user_id int,
+alignment varchar(255),
+background varchar(255),
+features text,
+class varchar(255),
+race varchar(255),
+level int,
+character_name varchar(255),
+gp int,
+ac int,
+image longblob,
+created_at timestamp default current_timestamp,
+updated_at timestamp default current_timestamp on update current_timestamp,
+foreign key (user_id) references users(id)
+) engine=innodb;
 
--- Tabela AttributePoints
-CREATE TABLE AttributePoints (
-    character_id INT PRIMARY KEY,
-    strength INT,
-    dexterity INT,
-    constitution INT,
-    intelligence INT,
-    wisdom INT,
-    charisma INT,
-    passive_perception INT,
-    FOREIGN KEY (character_id) REFERENCES Characters(id)
-) ENGINE=InnoDB;
+-- tabela attributepoints
+create table attributepoints (
+character_id int primary key,
+strength int,
+dexterity int,
+constitution int,
+intelligence int,
+wisdom int,
+charisma int,
+passive_perception int,
+foreign key (character_id) references characters(id)
+) engine=innodb;
 
+create table skills (
+character_id int primary key,
+acrobatics int,
+animal_handling int,
+arcana int,
+athletics int,
+deception int,
+history int,
+insight int,
+intimidation int,
+investigation int,
+medicine int,
+nature int,
+perception int,
+performance int,
+persuasion int,
+religion int,
+sleight_of_hand int,
+stealth int,
+survival int,
+foreign key (character_id) references characters(id)
+) engine=innodb;
 
-CREATE TABLE Skills (
-    character_id INT PRIMARY KEY,
-    Acrobatics  INT,
-    Animal_Handling INT,
-    Arcana  INT,
-    Athletics  INT,
-    Deception  INT,
-    History  INT,
-    Insight  INT,
-    Intimidation   INT,
-    Investigation   INT,
-    Medicine   INT,
-    Nature   INT,
-    Perception   INT,
-    Performance   INT,
-    Persuasion   INT,
-    Religion   INT,
-    Sleight_of_Hand INT,
-    Stealth   INT,
-    Survival INT,
-    FOREIGN KEY (character_id) REFERENCES Characters(id)
-) ENGINE=InnoDB;
+-- tabela spells
+create table spells (
+spell_id int primary key auto_increment,
+character_id int,
+name varchar(255),
+description text,
+foreign key (character_id) references characters(id)
+) engine=innodb;
 
-
-
--- Tabela Spells
-CREATE TABLE Spells (
-    spell_id INT PRIMARY KEY AUTO_INCREMENT,
-    character_id INT,
-    name VARCHAR(255),
-    description TEXT,
-    FOREIGN KEY (character_id) REFERENCES Characters(id)
-) ENGINE=InnoDB;
-
--- Tabela CharacterItems
-CREATE TABLE CharacterItems (
-    characteritems_id INT AUTO_INCREMENT,
-    character_id INT,
-    name VARCHAR(255),
-    description TEXT,
-    PRIMARY KEY (characteritems_id),
-    FOREIGN KEY (character_id) REFERENCES Characters(id)
-) ENGINE=InnoDB;
+-- tabela characteritems
+create table characteritems (
+characteritems_id int auto_increment,
+character_id int,
+name varchar(255),
+description text,
+primary key (characteritems_id),
+foreign key (character_id) references characters(id)
+) engine=innodb;

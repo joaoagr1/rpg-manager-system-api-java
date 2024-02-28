@@ -1,7 +1,7 @@
-ALTER TABLE attributepoints
-DROP FOREIGN KEY attributepoints_ibfk_1;
+alter table attributepoints
+ drop foreign key attributepoints_ibfk_1;
 
-ALTER TABLE attributepoints
-ADD CONSTRAINT attributepoints_ibfk_1
-FOREIGN KEY (character_id) REFERENCES characters(id)
-ON DELETE CASCADE;
+ alter table attributepoints
+ add constraint attributepoints_ibfk_1
+ foreign key (character_id) references characters(id)
+ on delete cascade;

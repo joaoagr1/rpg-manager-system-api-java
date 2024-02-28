@@ -1,7 +1,7 @@
-ALTER TABLE skills
-DROP FOREIGN KEY skills_ibfk_1;
+alter table skills
+drop foreign key skills_ibfk_1;
 
-ALTER TABLE skills
-ADD CONSTRAINT skills_ibfk_1
-FOREIGN KEY (character_id) REFERENCES characters(id)
-ON DELETE CASCADE;
+alter table skills
+add constraint skills_ibfk_1
+foreign key (character_id) references characters(id)
+on delete cascade;

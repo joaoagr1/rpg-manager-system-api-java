@@ -1,9 +1,9 @@
-DELIMITER //
-CREATE TRIGGER after_character_insert_attributes
-AFTER INSERT ON characters FOR EACH ROW
-BEGIN
-    INSERT INTO attributepoints (character_id,strength,dexterity,constitution,intelligence,wisdom,charisma,passive_perception )
-    VALUES (NEW.id, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-END;
+delimiter //
+create trigger after_character_insert_attributes
+after insert on characters for each row
+begin
+insert into attributepoints (character_id,strength,dexterity,constitution,intelligence,wisdom,charisma,passive_perception )
+values (new.id, null, null, null, null, null, null, null);
+end;
 //
-DELIMITER ;
+delimiter ;
