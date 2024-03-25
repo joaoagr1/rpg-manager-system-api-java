@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import rpg.system.rpg.model.services.RequestPostUser;
 
-@Table(name = "users")
+@Table(name = "Users")
 @Entity(name = "users")
 @Getter
 @NoArgsConstructor

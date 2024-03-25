@@ -19,13 +19,13 @@ public interface CharactersRepository extends JpaRepository<RPGCharacters, Long>
 
     @Transactional
     @Modifying
-    @Query(value = "UPDATE Characters SET image = :foto WHERE id = :personagemId", nativeQuery = true)
-    void saveFoto(@Param("personagemId") Long personagemId, @Param("foto") byte[] foto);
+    @Query(value = "UPDATE Characters SET image = :foto WHERE id = :character_Id", nativeQuery = true)
+    void saveFoto(@Param("character_Id") Long character_id, @Param("foto") byte[] foto);
 
-    Optional<RPGCharacters> findByPersonagemId(Long personagemId);
+    Optional<RPGCharacters> findByCharacterId(Long character_id);
 
-    @Query(value = "SELECT image FROM Characters WHERE id = :personagemId", nativeQuery = true)
-    byte[] findFotoById(@Param("personagemId") Long personagemId);
+    @Query(value = "SELECT image FROM Characters WHERE id = :character_Id", nativeQuery = true)
+    byte[] findFotoById(@Param("character_Id") Long character_id);
 
 }
 

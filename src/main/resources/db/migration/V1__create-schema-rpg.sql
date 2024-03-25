@@ -1,5 +1,5 @@
 -- Tabela Users
-CREATE TABLE Users (
+CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     login VARCHAR(255) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE Characters (
     image LONGBLOB,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES Users(id)
+    FOREIGN KEY (user_id) REFERENCES users(id)
 ) ENGINE=InnoDB;
 
 -- Tabela AttributePoints

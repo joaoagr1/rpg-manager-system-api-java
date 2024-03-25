@@ -18,7 +18,7 @@ public class RPGCharacters {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long character_id;
+    private Long characterId;
 
     private byte[] image;
 

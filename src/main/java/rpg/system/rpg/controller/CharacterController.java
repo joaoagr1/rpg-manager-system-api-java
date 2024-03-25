@@ -49,7 +49,7 @@ public class CharacterController {
     @PostMapping("/uploadFoto/{personagemId}")
     public ResponseEntity<String> uploadFoto(@PathVariable Long personagemId, @RequestParam("foto") MultipartFile foto) throws IOException {
 
-        RPGCharacters byPersonagemId = charactersRepository.findByPersonagemId(personagemId)
+        RPGCharacters byPersonagemId = charactersRepository.findByCharacterId(personagemId)
                 .orElseThrow(() -> new EntityNotFoundException("Personagem não encontrado!"));
 
         byPersonagemId.setImage(foto.getBytes());
