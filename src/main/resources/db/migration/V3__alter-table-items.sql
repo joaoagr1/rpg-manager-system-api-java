@@ -1,7 +1,9 @@
-ALTER TABLE characteritems
+-- Drop da chave estrangeira existente
+ALTER TABLE CharacterItems
 DROP FOREIGN KEY characteritems_ibfk_1;
 
-ALTER TABLE characteritems
+-- Adição de uma nova chave estrangeira
+ALTER TABLE CharacterItems
 ADD CONSTRAINT characteritems_ibfk_1
-FOREIGN KEY (character_id) REFERENCES characters(id)
+FOREIGN KEY (character_id) REFERENCES Characters(id)
 ON DELETE CASCADE;

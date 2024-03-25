@@ -1,7 +1,9 @@
-ALTER TABLE attributepoints
+-- Drop da chave estrangeira existente
+ALTER TABLE AttributePoints
 DROP FOREIGN KEY attributepoints_ibfk_1;
 
-ALTER TABLE attributepoints
+-- Adição de uma nova chave estrangeira
+ALTER TABLE AttributePoints
 ADD CONSTRAINT attributepoints_ibfk_1
-FOREIGN KEY (character_id) REFERENCES characters(id)
+FOREIGN KEY (character_id) REFERENCES Characters(id)
 ON DELETE CASCADE;
