@@ -13,7 +13,7 @@ import java.util.Optional;
 @Repository
 public interface UsersRepository extends JpaRepository <User, Long> {
 
-    @Query(value = "SELECT id FROM Users WHERE login = :login AND password_hash = :password_hash", nativeQuery = true)
+    @Query(value = "SELECT id FROM users WHERE login = :login AND password_hash = :password_hash", nativeQuery = true)
     Optional<Long> userAuthentication(@Param("login") String login, @Param("password_hash") String passwordHash);
 
 }

@@ -9,6 +9,7 @@ import rpg.system.rpg.model.repositorys.UsersRepository;
 import rpg.system.rpg.model.services.RequestPostUser;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/users")
 public class UserController {
 

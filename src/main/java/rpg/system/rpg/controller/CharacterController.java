@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/characters")
 public class CharacterController {
 

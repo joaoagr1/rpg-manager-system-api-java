@@ -11,6 +11,7 @@ import rpg.system.rpg.model.services.RequestUpdateSkills;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/skills")
 public class SkillsController {
 

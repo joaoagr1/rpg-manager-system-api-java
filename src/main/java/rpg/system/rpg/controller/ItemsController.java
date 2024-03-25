@@ -9,6 +9,7 @@ import rpg.system.rpg.model.services.RequestPostItem;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/items")
 public class ItemsController {

@@ -11,6 +11,7 @@ import rpg.system.rpg.model.services.RequestUpdateAttributes;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/atributepoints")
 public class AttributePointsController {
 

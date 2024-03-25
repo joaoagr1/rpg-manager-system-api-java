@@ -10,6 +10,7 @@ import rpg.system.rpg.model.services.RequestPostSpell;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/spells")
 public class SpellsController {
 

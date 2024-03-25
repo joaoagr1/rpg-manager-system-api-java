@@ -16,6 +16,7 @@ import rpg.system.rpg.model.services.RequestUpdateJournal;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/journal")
 public class JournalController {
 
