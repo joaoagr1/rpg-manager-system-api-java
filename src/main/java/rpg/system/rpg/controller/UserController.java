@@ -17,12 +17,14 @@ public class UserController {
     private UsersRepository usersRepository;
 
     @PostMapping
+    @CrossOrigin
     public ResponseEntity<User> createUser(@RequestBody RequestPostUser data) {
         User createdUser = usersRepository.save(new User(data));
         return ResponseEntity.ok(createdUser);
     }
 
     @GetMapping("/login")
+    @CrossOrigin
     public Long login(@RequestParam String login, @RequestParam String password) {
         return usersRepository.userAuthentication(login, password)
                 .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado!"));
