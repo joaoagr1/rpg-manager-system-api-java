@@ -24,10 +24,15 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    @CrossOrigin
     public Long login(@RequestParam String login, @RequestParam String password) {
-        return usersRepository.userAuthentication(login, password)
-                .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado!"));
+        Long userId = usersRepository.userAuthentication(login, password);
+
+        if (userId != null) {
+            return userId;
+        } else {
+            return 99L;
+        }
     }
+
 
 }
