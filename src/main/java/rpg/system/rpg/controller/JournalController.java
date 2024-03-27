@@ -23,6 +23,7 @@ public class JournalController {
     @Autowired
     private JournalRepository journalRepository;
 
+    @CrossOrigin
     @PutMapping("/{character_id}")
     public ResponseEntity<Journal> updateJournalrByCharacterId(@PathVariable Long character_id, @RequestBody RequestUpdateJournal data) {
         Journal existingJournal = journalRepository.findById(character_id)
@@ -33,6 +34,7 @@ public class JournalController {
         return ResponseEntity.ok(updatedCharacter);
     }
 
+    @CrossOrigin
     @GetMapping("/{character_id}")
     public ResponseEntity<List<Journal>> getJournalByCharacterId(@PathVariable Long character_id){
         List<Journal> selectedJournal = journalRepository.findJournalByCharacterId(character_id);
