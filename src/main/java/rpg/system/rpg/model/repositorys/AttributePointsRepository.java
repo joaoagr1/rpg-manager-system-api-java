@@ -11,9 +11,8 @@ import java.util.List;
 @Repository
 public interface AttributePointsRepository extends JpaRepository<AttributePoints, Long> {
 
-    @Query(value = "SELECT a FROM attributePoints a WHERE a.characterId = :character_id")
+    @Query(value = "SELECT a FROM attributepoints a WHERE a.characterId = :character_id")
     List<AttributePoints> getAttributesByCharacterId(@Param("character_id") Long character_id);
 
-    List<AttributePoints> findAllByCharacterId(Long characterId);
 
 }
