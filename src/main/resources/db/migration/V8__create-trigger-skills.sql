@@ -1,12 +1,10 @@
-DELIMITER //
-CREATE TRIGGER after_character_insert_skills
-AFTER INSERT ON Characters FOR EACH ROW
-BEGIN
-    INSERT INTO skills (character_id, Acrobatics, Animal_Handling, Arcana, Athletics, Deception, History, Insight, Intimidation ,Investigation,
-                                     Medicine, Nature, Perception,Performance, Persuasion, Religion, Sleight_of_Hand, Stealth, Survival)
-    VALUES (NEW.id, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-END;
+delimiter //
+create trigger after_character_insert_skills
+after insert on characters for each row
+begin
+    insert into skills (character_id, acrobatics, animal_handling, arcana, athletics, deception, history, insight, intimidation, investigation,
+                         medicine, nature, perception, performance, persuasion, religion, sleight_of_hand, stealth, survival)
+    values (new.id, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+end;
 //
-DELIMITER ;
-
-
+delimiter ;

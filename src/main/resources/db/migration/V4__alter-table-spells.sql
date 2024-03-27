@@ -1,9 +1,9 @@
--- Drop da chave estrangeira existente
-ALTER TABLE Spells
-DROP FOREIGN KEY spells_ibfk_1;
+-- drop da chave estrangeira existente
+alter table spells
+drop foreign key spells_ibfk_1;
 
--- Adição de uma nova chave estrangeira
-ALTER TABLE Spells
-ADD CONSTRAINT spells_ibfk_1
-FOREIGN KEY (character_id) REFERENCES Characters(id)
-ON DELETE CASCADE;
+-- adição de uma nova chave estrangeira
+alter table spells
+add constraint spells_ibfk_1
+foreign key (character_id) references characters(id)
+on delete cascade;

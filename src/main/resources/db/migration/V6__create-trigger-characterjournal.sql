@@ -1,9 +1,9 @@
-DELIMITER //
-CREATE TRIGGER after_character_insert
-AFTER INSERT ON Characters FOR EACH ROW
-BEGIN
-    INSERT INTO characterjournal (character_id, journal)
-    VALUES (NEW.id, NULL);
-END;
+delimiter //
+create trigger after_character_insert
+after insert on characters for each row
+begin
+    insert into characterjournal (character_id, journal)
+    values (new.id, null);
+end;
 //
-DELIMITER ;
+delimiter ;

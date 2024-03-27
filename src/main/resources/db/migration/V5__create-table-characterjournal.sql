@@ -1,6 +1,6 @@
-CREATE TABLE characterjournal (
-    character_id INT,
-    journal TEXT,
-    PRIMARY KEY (character_id),
-    FOREIGN KEY (character_id) REFERENCES Characters(id) ON DELETE CASCADE
+create table characterjournal (
+    character_id int,
+    journal text,
+    primary key (character_id),
+    foreign key (character_id) references characters(id) on delete cascade
 );

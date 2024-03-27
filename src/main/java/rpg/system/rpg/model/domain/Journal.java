@@ -13,7 +13,7 @@ import rpg.system.rpg.model.services.RequestUpdateCharacter;
 import rpg.system.rpg.model.services.RequestUpdateJournal;
 
 @Entity(name = "characterjournal")
-@Table(name = "Character_journal")
+@Table(name = "character_journal")
 @EqualsAndHashCode(of = "characterId")
 @Getter
 @NoArgsConstructor

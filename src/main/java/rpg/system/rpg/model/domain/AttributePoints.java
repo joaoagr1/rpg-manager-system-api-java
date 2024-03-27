@@ -8,7 +8,7 @@ import rpg.system.rpg.model.services.RequestUpdateAttributes;
 import rpg.system.rpg.model.services.RequestUpdateCharacter;
 
 @Entity
-@Table(name = "Attributepoints")
+@Table(name = "attributepoints")
 @Getter
 @Setter
 @EqualsAndHashCode(of = "characterId")

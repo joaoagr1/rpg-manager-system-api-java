@@ -6,8 +6,8 @@ import lombok.*;
 import rpg.system.rpg.model.services.RequestPostCharacter;
 import rpg.system.rpg.model.services.RequestUpdateCharacter;
 
-@Table(name = "Characters")
-@Entity(name = "Characters")
+@Table(name = "characters")
+@Entity(name = "characters")
 @Getter
 @Setter
 @NoArgsConstructor

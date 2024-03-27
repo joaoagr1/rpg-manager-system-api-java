@@ -1,7 +1,10 @@
-ALTER TABLE Skills
-DROP FOREIGN KEY skills_ibfk_1;
-
-ALTER TABLE Skills
-ADD CONSTRAINT skills_ibfk_1
-FOREIGN KEY (character_id) REFERENCES Characters(id)
-ON DELETE CASCADE;
+delimiter //
+create trigger after_character_insert_skills
+after insert on characters for each row
+begin
+    insert into skills (character_id, acrobatics, animal_handling, arcana, athletics, deception, history, insight, intimidation, investigation,
+                         medicine, nature, perception, performance, persuasion, religion, sleight_of_hand, stealth, survival)
+    values (new.id, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+end;
+//
+delimiter ;
