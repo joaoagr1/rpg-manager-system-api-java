@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 import rpg.system.rpg.model.services.RequestUpdateCharacter;
 import rpg.system.rpg.model.services.RequestUpdateJournal;
 
-@Entity(name = "character_journal")
-@Table(name = "character_journal")
+@Entity(name = "characterjournal")
+@Table(name = "characterjournal")
 @EqualsAndHashCode(of = "characterId")
 @Getter
 @NoArgsConstructor
