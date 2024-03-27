@@ -40,7 +40,7 @@ public class CharacterController {
         if (foto == null) {
             return ResponseEntity.notFound().build();
         }
-
+//1
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_JPEG);
         return new ResponseEntity<>(foto, headers, HttpStatus.OK);
