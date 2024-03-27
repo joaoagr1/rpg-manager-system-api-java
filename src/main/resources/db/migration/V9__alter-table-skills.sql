@@ -1,10 +1,7 @@
-delimiter //
-create trigger after_character_insert_skills
-after insert on characters for each row
-begin
-    insert into skills (character_id, acrobatics, animal_handling, arcana, athletics, deception, history, insight, intimidation, investigation,
-                         medicine, nature, perception, performance, persuasion, religion, sleight_of_hand, stealth, survival)
-    values (new.id, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-end;
-//
-delimiter ;
+ALTER TABLE skills
+DROP FOREIGN KEY skills_ibfk_1;
+
+ALTER TABLE skills
+ADD CONSTRAINT skills_ibfk_1
+FOREIGN KEY (character_id) REFERENCES characters(id)
+ON DELETE CASCADE;
