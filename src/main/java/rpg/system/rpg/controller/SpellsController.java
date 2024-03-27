@@ -17,14 +17,12 @@ public class SpellsController {
     @Autowired
     private SpellsRepository spellsRepository;
 
-    @CrossOrigin
     @GetMapping("/{character_id}")
     public ResponseEntity<List<Spells>> getCharactersByUserId(@PathVariable Long character_id) {
         List<Spells> spells = spellsRepository.findSpellsByCharacterId(character_id);
         return ResponseEntity.ok(spells);
     }
 
-    @CrossOrigin
     @PostMapping
     public ResponseEntity<Spells> createSpell(@RequestBody RequestPostSpell data) {
         Spells createdSpell = spellsRepository.save(new Spells(data));

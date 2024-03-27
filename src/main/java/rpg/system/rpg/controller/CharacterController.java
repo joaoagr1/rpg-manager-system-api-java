@@ -28,13 +28,11 @@ public class CharacterController {
     private CharactersRepository charactersRepository;
 
     @GetMapping
-    @CrossOrigin
     public ResponseEntity<List<RPGCharacters>> getAllCharacters() {
         List<RPGCharacters> allCharacters = charactersRepository.findAll();
         return ResponseEntity.ok(allCharacters);
     }
 
-    @CrossOrigin
     @GetMapping("/foto/{personagemId}")
     public ResponseEntity<byte[]> getFoto(@PathVariable Long personagemId) {
         byte[] foto = charactersRepository.findFotoById(personagemId);
@@ -48,7 +46,6 @@ public class CharacterController {
         return new ResponseEntity<>(foto, headers, HttpStatus.OK);
 
     }
-    @CrossOrigin
     @PostMapping("/uploadFoto/{personagemId}")
     public ResponseEntity<String> uploadFoto(@PathVariable Long personagemId, @RequestParam("foto") MultipartFile foto) throws IOException {
 
@@ -61,14 +58,13 @@ public class CharacterController {
 
     }
 
-    @CrossOrigin
     @GetMapping("/user/{user_id}")
     public ResponseEntity<List<RPGCharacters>> getCharactersByUserId(@PathVariable Long user_id) {
         List<RPGCharacters> charactersFromUser = charactersRepository.findCharactersByUserId(user_id);
         return ResponseEntity.ok(charactersFromUser);
     }
 
-    @CrossOrigin
+    
     @GetMapping("/{character_id}")
     public ResponseEntity<RPGCharacters> getCharacterById(@PathVariable Long character_id) {
         RPGCharacters character = getRpgCharacters(character_id);

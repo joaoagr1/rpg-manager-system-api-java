@@ -18,14 +18,12 @@ public class SkillsController {
     @Autowired
     private SkillRepository skillRepository;
 
-    @CrossOrigin
     @GetMapping("/{character_id}")
     public ResponseEntity<List<Skills>> getAttributesByCharacterId(@PathVariable Long character_id) {
         List<Skills> skills = skillRepository.getSkillsByCharacterId(character_id);
         return ResponseEntity.ok(skills);
     }
 
-    @CrossOrigin
     @PutMapping("/{character_id}")
     public ResponseEntity<Skills> updateSkillsByCharacterId(@PathVariable Long character_id, @RequestBody RequestUpdateSkills dataSkills) {
         Skills existingSkills = skillRepository.findById(character_id)

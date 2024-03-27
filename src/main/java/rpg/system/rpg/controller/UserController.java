@@ -17,7 +17,6 @@ public class UserController {
     private UsersRepository usersRepository;
 
     @PostMapping
-    @CrossOrigin
     public ResponseEntity<User> createUser(@RequestBody RequestPostUser data) {
         User createdUser = usersRepository.save(new User(data));
         return ResponseEntity.ok(createdUser);
