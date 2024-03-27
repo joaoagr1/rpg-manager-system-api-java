@@ -7,7 +7,7 @@ import lombok.Setter;
 import rpg.system.rpg.model.services.RequestUpdateAttributes;
 import rpg.system.rpg.model.services.RequestUpdateCharacter;
 
-@Entity
+@Entity(name = "attributepoints")
 @Table(name = "attributepoints")
 @Getter
 @Setter

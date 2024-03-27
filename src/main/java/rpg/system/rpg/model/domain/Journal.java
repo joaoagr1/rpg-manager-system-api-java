@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import rpg.system.rpg.model.services.RequestUpdateCharacter;
 import rpg.system.rpg.model.services.RequestUpdateJournal;
 
-@Entity(name = "characterjournal")
+@Entity(name = "character_journal")
 @Table(name = "character_journal")
 @EqualsAndHashCode(of = "characterId")
 @Getter
