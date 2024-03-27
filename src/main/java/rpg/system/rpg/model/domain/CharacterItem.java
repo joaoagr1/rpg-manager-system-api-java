@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import rpg.system.rpg.model.services.RequestPostItem;
 
-@Entity(name = "characteritems")
+@Entity(name = "Characteritems")
 @Table(name = "Characteritems")
 @EqualsAndHashCode(of = "characteritems_id")
 @Getter
